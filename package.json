@@ -1,0 +1,19 @@
+{
+  "name": "url-shortener-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev:server": "ts-node-dev --transpileOnly --ignore-watch node_modules src/server.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.54",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
