@@ -1,7 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import shortid from 'shortid';
 
-interface IUrlShortener extends Document {
+export interface IUrlShortener extends Document {
   fullUrl: string;
   shortUrl: string;
 }
@@ -14,7 +13,8 @@ const UrlShortenerSchema: Schema = new mongoose.Schema({
   shortUrl: {
     type: String,
     required: true,
-    default: shortid.generate,
+    unique: true,
+    lowercase: true,
   },
 });
 
