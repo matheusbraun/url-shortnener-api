@@ -9,13 +9,18 @@ const UrlShortenerController = {
     next: NextFunction,
   ): Promise<void | Response> {
     try {
-      const { urlid } = request.query;
+      const { shortUrlId } = request.params;
 
       const url = await UrlShortener.findOne({
-        shortUrlId: urlid,
+        shortUrl: shortUrlId,
       });
 
-      return response.json({ message: url });
+      if (url === null) {
+        response.status(404);
+        throw new Error('Short url not found.');
+      }
+
+      return response.redirect(url.fullUrl);
     } catch (err) {
       return next(err);
     }

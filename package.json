@@ -27,6 +27,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@types/shortid": "^0.0.29",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "git-commit-msg-linter": "^2.4.4",
@@ -34,6 +35,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "mongoose": "^5.9.25",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "shortid": "^2.2.15"
   }
 }
