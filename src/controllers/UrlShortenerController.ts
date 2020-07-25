@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import shortid from 'shortid';
+import isURL from 'validator/es/lib/isURL';
 
 import UrlShortener, { IUrlShortener } from '../models/UrlShortener';
 
@@ -11,6 +12,15 @@ const UrlShortenerController = {
   ): Promise<void | Response<IUrlShortener>> {
     try {
       const { fullUrl, shortUrl } = request.body;
+
+      if (!isURL(fullUrl)) {
+        response.status(422);
+        throw new Error('The URL informed is not correct.');
+      }
+
+      shortid.characters(
+        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      );
 
       const shortUrlToSave = shortUrl
         ? shortUrl.toLowerCase()

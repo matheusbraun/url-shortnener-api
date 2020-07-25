@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@types/shortid": "^0.0.29",
+    "@types/validator": "^13.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "git-commit-msg-linter": "^2.4.4",
@@ -36,6 +37,7 @@
     "lint-staged": "^10.2.11",
     "mongoose": "^5.9.25",
     "morgan": "^1.10.0",
-    "shortid": "^2.2.15"
+    "shortid": "^2.2.15",
+    "validator": "^13.1.1"
   }
 }
