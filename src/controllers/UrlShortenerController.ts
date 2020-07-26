@@ -18,9 +18,14 @@ const UrlShortenerController = {
         throw new Error('The URL informed is not correct.');
       }
 
-      const shortUrlToSave = shortUrl
+      const shortUrlToSave: string = shortUrl
         ? shortUrl.toLowerCase()
         : shortid.generate();
+
+      if (shortUrlToSave.length > 14 || !shortid.isValid(shortUrlToSave)) {
+        response.status(422);
+        throw new Error('The short URL informed has a wrong format.');
+      }
 
       let url = await UrlShortener.findOne({
         fullUrl,
