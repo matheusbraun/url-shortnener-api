@@ -2,6 +2,7 @@
   "name": "url-shortener-api",
   "version": "1.0.0",
   "main": "index.js",
+  "author": "Matheus Braun <matheeusbl@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
