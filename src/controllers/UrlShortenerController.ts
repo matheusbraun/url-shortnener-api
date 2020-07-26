@@ -18,13 +18,9 @@ const UrlShortenerController = {
         throw new Error('The URL informed is not correct.');
       }
 
-      shortid.characters(
-        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
-      );
-
       const shortUrlToSave = shortUrl
         ? shortUrl.toLowerCase()
-        : shortid.generate;
+        : shortid.generate();
 
       let url = await UrlShortener.findOne({
         fullUrl,
