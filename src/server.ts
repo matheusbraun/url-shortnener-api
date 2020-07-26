@@ -2,11 +2,15 @@ import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
+import mongoose from 'mongoose';
 
 import routes from './routes';
 import { errorHandler, notFound } from './middlewares/error';
+import dbConfig from './config/db';
 
 const app = express();
+
+mongoose.connect(dbConfig.dbConnectionUrl, dbConfig.dbConnectionOptions);
 
 app.use(express.json());
 app.use(morgan('dev'));
